@@ -1,5 +1,12 @@
-<div class="center jumbotron">
-  <div class="text-center">
-    <h1>部室予約サービスへようこそ！</h1>
+<% if logged_in? %>
+  <h1><%= current_circle.name %>サークル</h1>
+  <h2>予約状況</h2>
+  <%#ここに予約したものの一覧表を入れる%>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>部室予約サービスへようこそ！</h1>
+      <%= link_to '新規登録', signup_path, class: 'btn btn-lg btn-primary' %>
+    </div>
   </div>
-</div>
+<% end %>
