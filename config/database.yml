@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: clubroomrsv_production
   username: clubroomrsv
   password: <%= ENV['CLUBROOMRSV_DATABASE_PASSWORD'] %>

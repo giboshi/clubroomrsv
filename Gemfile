@@ -58,3 +58,7 @@ gem 'bootstrap3-datetimepicker-rails'
 gem 'momentjs-rails', '>= 2.9.0'
 
 gem 'pry-byebug', group: :development
+
+group :production do
+  gem 'pg', '0.21.0'
+end
