@@ -59,7 +59,7 @@ class ReservationsController < ApplicationController
     #_count4 = bookingtest4(_reserved_to_at) #Y_e≦X_e
     _count3 = bookingtest3(_reserved_from_at, _reserved_to_at) #Y_b≦X_bかつX_e≦Y_e
     #_count6 = bookingtest6(_reserved_to_at) #X_e≦Y_e
-    binding.pry
+    #binding.pry
     
     if (_count1 != 0)  #X_b≦Y_b≦X_e
       flash[:danger] = '予約できません。'
