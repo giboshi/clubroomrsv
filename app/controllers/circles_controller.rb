@@ -1,4 +1,5 @@
 class CirclesController < ApplicationController
+  before_action :require_circle_logged_in, only: [:index]
   def index
     @circles = Circle.page(params[:page])
   end

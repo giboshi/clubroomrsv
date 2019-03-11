@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  before_action :require_circle_logged_in, only: [:index, :new]
   def index
     #@reservations = Reservation.all.page(params[:page])
     @reservations = current_circle.reservations.order('created_at DESC')
