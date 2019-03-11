@@ -1,0 +1,7 @@
+Room.create(name: '和室')
+Room.create(name: 'グラウンド')
+Room.create(name: 'テニスコート')
+Room.create(name: '学生会館101')
+Room.create(name: '学生会館102')
+Room.create(name: '武道館')
+Room.create(name: '体育館')
