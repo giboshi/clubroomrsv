@@ -12,5 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
+
+//= require moment
+//= require bootstrap-datetimepicker
+
+
+//$('.date-picker').datetimepicker(pickTime: false);
+
 //= require_tree .
+

@@ -1,1 +1,4 @@
 <%= render 'circles', circles: @circles %>
+<% @rooms.each do |room| %>
+  <%= room.name %>
+<% end %>

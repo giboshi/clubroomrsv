@@ -13,7 +13,8 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
-            <li><a href="#">予約する</a></li>
+            <li><%= link_to '予約一覧', reservations_path %></a></li>
+            <li><%= link_to '予約する', reservations_new_path %></a></li>
             <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
           <% else %>
             <li><%= link_to '新規登録', signup_path %></li>

@@ -4,6 +4,9 @@ class CirclesController < ApplicationController
   end
 
   def show
+    #@circle = Circle.find(params[:id])
+    #@items = @user.items.uniq
+    #@count_want = @circle.reserved_rooms.count
   end
 
   def new
@@ -20,6 +23,13 @@ class CirclesController < ApplicationController
       flash.now[:danger] = 'サークルの登録に失敗しました。'
       render :new
     end
+  end
+  
+  def reservations
+    @circle = Circle.find(params[:id])
+    #@reservationings = @circle.reservationings.page(params[:page])
+    #@room = Room.find(params[:id])
+    @re_rooms = @circle.reserved_rooms.page(params[:page])
   end
   
   private

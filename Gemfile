@@ -53,3 +53,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'kaminari'
+
+gem 'bootstrap3-datetimepicker-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+
+gem 'pry-byebug', group: :development

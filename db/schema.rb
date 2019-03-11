@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190303135122) do
+ActiveRecord::Schema.define(version: 20190309015429) do
 
   create_table "circles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -19,4 +19,31 @@ ActiveRecord::Schema.define(version: 20190303135122) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "room_id"
+    t.integer  "circle_id"
+    t.string   "staff"
+    t.string   "memo"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.datetime "reserved_from_at_date"
+    t.datetime "reserved_from_at_hour"
+    t.datetime "reserved_from_at_minute"
+    t.datetime "reserved_to_at_date"
+    t.datetime "reserved_to_at_hour"
+    t.datetime "reserved_to_at_minute"
+    t.datetime "reserved_from_at"
+    t.datetime "reserved_to_at"
+    t.index ["circle_id"], name: "index_reservations_on_circle_id", using: :btree
+    t.index ["room_id"], name: "index_reservations_on_room_id", using: :btree
+  end
+
+  create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "reservations", "circles"
+  add_foreign_key "reservations", "rooms"
 end

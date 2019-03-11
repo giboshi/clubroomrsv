@@ -1,0 +1,95 @@
+<h1><%= current_circle.name %>サークル</h1>
+<h2>部室予約</h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="clearfix">
+      <%= form_for(@reservation) do |f| %>
+      
+        <div class="form-group">
+          <%= f.label :room, '使用場所' %>
+          <%#<%= hidden_field_tag :room_id, current_circle.id %>
+          <%#<%= f.select :room, @rooms.map{|t| [t.name, t.id]} %>
+          <%= f.collection_select :room_id, Room.all, :id, :name, class:"form-control" %>
+          <%#<%= f.collection_select :属性名, モデル名.all, :idカラム（key）, :nameカラム（value） %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :staff, '入力担当者' %>
+          <%= f.text_field :staff, class: 'form-control' %>
+        </div>
+        
+        <div class="form-group form-inline">
+          <label class="control-label" for="">使用開始日時</label>
+            <div id='datepicker6'>
+            <%= f.text_field :reserved_from_at_date, class: 'form-control date-picker' %>
+            </div> 
+          
+          <%= f.select :reserved_from_at_hour, (0..23).to_a.map { |v| "%02d" % v }, {}, class: 'form-control' %> :
+          <%= f.select :reserved_from_at_minute, [0, 30].map { |v| "%02d" % v }, {}, class: 'form-control' %>
+          <%# (0..23).to_a->[0,1,2,...,21,22,23] %>
+        </div>
+        
+        <div class="form-group form-inline">
+          <label class="control-label" for="">使用終了日時</label>
+            <div id='datepicker6'>
+            <%= f.text_field :reserved_to_at_date, class: 'form-control date-picker' %>
+            </div> 
+          
+          <%= f.select :reserved_to_at_hour, (0..23).to_a.map { |v| "%02d" % v }, {}, class: 'form-control' %> :
+          <%= f.select :reserved_to_at_minute, [0, 30].map { |v| "%02d" % v }, {}, class: 'form-control' %>
+          <%# (0..23).to_a->[0,1,2,...,21,22,23] %>
+        </div>
+        <%#<div class="form-group">
+          <div class='input-group date' id='datetimepicker6'>
+            <%= f.label :reserved_from, '使用開始日時' %>
+            <%#<%= f.text_field :start_date, :class => 'form-control', :placeholder => "借りたい日"%>
+            <%#<%= f.text_field :reserved_from, :class => 'form-control' %>
+              <%#<span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class='input-group date' id='datetimepicker7'>
+            <%= f.label :reserved_to, '使用終了日時' %>
+            <%#<%= f.text_field :reserved_to, :class => 'form-control' %>
+            <%#<span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </div>%>
+        
+        <div class="form-group">
+          <%= f.label :memo, '備考' %>
+          <%= f.text_field :memo, class: 'form-control' %>
+        </div>
+  
+        <%= f.submit '予約', class: 'btn btn-primary btn-block' %>
+        
+      <% end %>
+    </div>
+    
+    <!--<script type="text/javascript">-->
+    <!--  $(function () {-->
+    <!--    $('#datepicker6').datepicker();-->
+    <!--    $('#datepicker7').datepicker({-->
+            <!--useCurrent: false //Important! See issue #1075-->
+    <!--    });-->
+    <!--    $("#datepicker6").on("dp.change", function (e) {-->
+    <!--        $('#datepicker7').data("DatePicker").minDate(e.date);-->
+    <!--    });-->
+    <!--    $("#datepicker7").on("dp.change", function (e) {-->
+    <!--        $('#datepicker6').data("DatePicker").maxDate(e.date);-->
+    <!--    });-->
+
+    <!--  });-->
+
+    <!--</script>-->
+    
+
+    
+  </div>
+</div>
+

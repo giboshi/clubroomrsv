@@ -7,5 +7,12 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   
   get 'signup', to: 'circles#new'
-  resources :circles, only: [:index, :show, :new, :create]#index,showは必要ないかも？
+  post 'reservations/new', to: 'reservations#create'
+  resources :circles, only: [:index, :show, :new, :create] do#index,showは必要ないかも？
+    member do
+      get :reservations  #/circles/:id/reservations(.:format)   circles#reservations
+      get :reserved_rooms#/circles/:id/reserved_rooms(.:format) circles#reserved_roomsこれが必要なのか不明
+    end
+  end
+  resources :reservations, only: [:index, :new, :create, :destroy]
 end

@@ -1,0 +1,27 @@
+<h1><%= current_circle.name %>サークル</h1>
+<h2>予約一覧</h2>
+
+<ul>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>部屋</th>
+        <th>担当者</th>
+        <th>使用開始日時</th>
+        <th>使用終了日時</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <tr>
+          <td class="room"><%= reservation.room.name %></td>
+          <td><%= reservation.staff %></td>
+          <td><%= reservation.reserved_from_at_date %> <%= reservation.reserved_from_at_hour %>:<%= reservation.reserved_from_at_minute %></td>
+          <td><%= reservation.reserved_to_at_date %> <%= reservation.reserved_to_at_hour %>:<%= reservation.reserved_to_at_minute %></td>
+          <td><%= reservation.memo %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</ul>
